@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-configuration PUBLIC 
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"https://hibernate.org/dtd/hibernate-configuration-3.0.dtd" >
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver.class">com.mysql.cj.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///hibernate</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+		
+		<!-- Optional Properties for Hibernate -->
+		
+		<!-- prepare the query based on the mapping information for the underlying database -->
+		<!-- this property is optional because we already given the information about the DBEngine in the connectionURL, so hibernate will understand about the db from that url -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+		
+		<!-- Tell hibernate to display the query on the console it has generated internally -->
+		<property name="hibernate.show_sql">true</property>
+		
+		<!-- Inform hibernate to display the query on the console it has generated internally in proper format  -->
+		<property name="hibernate.format_sql">true</property>
+		
+		<!-- Inform Hibernate to create/alter/drop the table --> <!-- whether the operation should perform on new table or existing table or the table should be deleted after the program ends, etc... -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		
+		<!-- Mapping information for hibernate (classname->tablename) (fieldname->columnname) -->
+		<mapping class="sp.sree.model.Student" /> <!-- fully qualified name of the mapping-class  -->
+	</session-factory>
+</hibernate-configuration>
